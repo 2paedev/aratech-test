@@ -1,6 +1,6 @@
 # AratechTest
 
-This project is made for a technical test with Angular 13 + Angular Material.
+This project is made for a technical test with Angular 13 + Angular Material + RxJS.
 
 ## Features & Tools
 
@@ -8,7 +8,7 @@ This project is made for a technical test with Angular 13 + Angular Material.
 - Angular Material (prebuilt theme & typography)
 - Husky hooks (pre-commit & pre-push)
 - Lazy loading modules
-- ESLint and Prettier configuration
+- ESLint, Stylelint and Prettier configuration
 - Reactivity with RxJS
 - Interceptors to manage token.
 
@@ -61,6 +61,6 @@ This project is licensed under the MIT License
 
 ## Contact
 
-Name: Diego Manuel Martínez Ayuso
-Email: diego.martinez.ayuso@gmail.com
-Github profile: https://github.com/2paedev
+- Name: Diego Manuel Martínez Ayuso
+- Email: diego.martinez.ayuso@gmail.com
+- Github profile: https://github.com/2paedev
