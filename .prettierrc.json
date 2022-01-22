@@ -19,6 +19,12 @@
       "options": {
         "parser": "html"
       }
+    },
+    {
+      "files": ["**/*.css", "**/*.scss", "**/*.html"],
+      "options": {
+          "singleQuote": false
+      }
     }
   ]
 }

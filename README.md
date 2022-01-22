@@ -4,13 +4,14 @@ This project is made for a technical test with Angular 13 + Angular Material + R
 
 ## Features & Tools
 
-- Unit test with Karma/Jasmine (coverage)
+- Unit test with Karma/Jasmine (better reporter & coverage)
 - Angular Material (prebuilt theme & typography)
 - Husky hooks (pre-commit & pre-push)
 - Lazy loading modules
 - ESLint, Stylelint and Prettier configuration
 - Reactivity with RxJS
 - Interceptors to manage token.
+- Responsive design.
 
 ## Getting Started
 

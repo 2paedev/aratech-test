@@ -1,0 +1,45 @@
+<!-- Aquí se podría crear un custom component del form-field-->
+<section class="full-screen full-center signin">
+  <div class="signin__form">
+    <form
+      [formGroup]="signinForm"
+      (submit)="onSubmit()"
+    >
+      <mat-form-field
+        class="signin__field"
+        appearance="outline"
+      >
+        <mat-label> E-mail
+        </mat-label>
+        <input
+          matInput
+          formControlName="email"
+          required
+        >
+        <mat-error *ngIf="signinForm.controls['email'].invalid">
+          <span *ngIf="signinForm.hasError('required', 'email')">This field is mandatory.</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field
+        class="signin__field"
+        appearance="outline"
+      >
+        <mat-label> Password
+        </mat-label>
+        <input
+          matInput
+          formControlName="password"
+          type="password"
+        >
+        <mat-error *ngIf="signinForm.controls['password'].invalid">
+          <span *ngIf="signinForm.hasError('required', 'password')">This field is mandatory.</span>
+        </mat-error>
+      </mat-form-field>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+      >Log In</button>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,13 @@
+.signin {
+  text-align: center;
+
+  &__form {
+    width: 400 px;
+    margin: 0 px auto;
+    margin-top: 200 px;
+  }
+
+  &__field {
+    display: block;
+  }
+}
