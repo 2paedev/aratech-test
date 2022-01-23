@@ -1,0 +1,88 @@
+<section class="dialog">
+  <button
+    mat-icon-button
+    class="dialog--close"
+    [mat-dialog-close]="true"
+  >
+    <mat-icon
+      class="close-icon"
+      color="warn"
+    >close</mat-icon>
+  </button>
+  <h1
+    class="dialog__title"
+    mat-dialog-title
+  >{{dialogTypeText}} una noticia</h1>
+  <div
+    class="dialog__content"
+    mat-dialog-content
+  >
+    <form
+      [formGroup]="dialogForm"
+      (submit)="onSubmit()"
+      *ngIf="!isSubmitted"
+      class="dialog__form"
+    >
+      <span class="dialog__form--subtitle">* Los campos son obligatorios</span>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Uuid</mat-label>
+        <input
+          matInput
+          formControlName="uuid"
+          required
+        >
+        <mat-error *ngIf="dialogForm.controls['uuid'].invalid">
+          <span *ngIf="dialogForm.hasError('required', 'uuid')">Este campo es obligatorio.</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field
+        appearance="outline"
+        *ngIf="data.type !== NewsDialogTypes.Remove"
+      >
+        <mat-label>Title</mat-label>
+        <input
+          matInput
+          formControlName="title"
+          required
+        >
+        <mat-error *ngIf="dialogForm.controls['title'].invalid">
+          <span *ngIf="dialogForm.hasError('required', 'title')">Este campo es obligatorio.</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field
+        appearance="outline"
+        *ngIf="data.type !== NewsDialogTypes.Remove"
+      >
+        <mat-label>Description</mat-label>
+        <input
+          matInput
+          formControlName="description"
+          required
+        >
+        <mat-error *ngIf="dialogForm.controls['description'].invalid">
+          <span *ngIf="dialogForm.hasError('required', 'description')">Este campo es obligatorio.</span>
+        </mat-error>
+      </mat-form-field>
+
+      <button
+        class="dialog__form--submit"
+        mat-raised-button
+        color="primary"
+        type="submit"
+      >{{dialogTypeText}}</button>
+    </form>
+
+    <div *ngIf="isSubmitted">
+      <span>La acción ha terminado correctamente.</span>
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="onClose()"
+      >Salir</button>
+    </div>
+  </div>
+</section>

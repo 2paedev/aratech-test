@@ -1,3 +1,5 @@
+import { HttpHeaders } from '@angular/common/http'
+
 const API_BASE_URL = 'http://localhost:3001/api'
 
 export const API = {
@@ -7,4 +9,8 @@ export const API = {
     TURN_ADMIN: (uuid: string): string => `${API_BASE_URL}/turn-admin/${uuid}`
   },
   NEWS: `${API_BASE_URL}/news`
+}
+
+export const CustomHttpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 }

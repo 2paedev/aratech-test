@@ -17,7 +17,7 @@
           required
         >
         <mat-error *ngIf="signinForm.controls['email'].invalid">
-          <span *ngIf="signinForm.hasError('required', 'email')">This field is mandatory.</span>
+          <span *ngIf="signinForm.hasError('required', 'email')">Este campo es obligatorio.</span>
         </mat-error>
       </mat-form-field>
       <mat-form-field
@@ -32,7 +32,7 @@
           type="password"
         >
         <mat-error *ngIf="signinForm.controls['password'].invalid">
-          <span *ngIf="signinForm.hasError('required', 'password')">This field is mandatory.</span>
+          <span *ngIf="signinForm.hasError('required', 'password')">Este campo es obligatorio.</span>
         </mat-error>
       </mat-form-field>
       <button

@@ -4,6 +4,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle'
 import { MatIconModule } from '@angular/material/icon'
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatToolbarModule } from '@angular/material/toolbar'
+import { RouterTestingModule } from '@angular/router/testing'
 import { ToolbarComponent } from './toolbar.component'
 
 describe('ToolbarComponent', () => {
@@ -13,7 +14,7 @@ describe('ToolbarComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ToolbarComponent],
-      imports: [MatToolbarModule, MatIconModule, MatSidenavModule, MatButtonToggleModule],
+      imports: [MatToolbarModule, MatIconModule, MatSidenavModule, MatButtonToggleModule, RouterTestingModule],
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents()
   })

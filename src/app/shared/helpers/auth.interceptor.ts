@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
 import { AuthService } from '../services/auth.service'
 
-const TOKEN_HEADER_KEY = 'Authorization'
+const TOKEN_HEADER_KEY = 'token'
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -13,7 +13,7 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(httpReq: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let req = httpReq
     if (this.auth.isAuthenticated()) {
-      req = req.clone({ headers: req.headers.set(TOKEN_HEADER_KEY, 'Bearer ' + this.auth.getAuthToken()) })
+      req = req.clone({ headers: req.headers.set(TOKEN_HEADER_KEY, '' + this.auth.getAuthToken()) })
     }
     return next.handle(req)
   }

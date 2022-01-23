@@ -7,3 +7,7 @@ export interface INews {
 export interface INewsResponse {
   news: Array<INews>
 }
+
+export interface INewsActionResponse {
+  news: INews
+}

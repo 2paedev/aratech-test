@@ -1,13 +1,9 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
-import { API } from '../const/api.const'
+import { API, CustomHttpOptions } from '../const/api.const'
 import { ISigninParams, ISigninResponse, IUser } from '../models/auth.model'
 import { StorageService } from './storage.service'
-
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-}
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +18,7 @@ export class AuthService {
         email: bodyParams.email,
         password: bodyParams.password
       },
-      httpOptions
+      CustomHttpOptions
     )
   }
 
@@ -34,12 +30,12 @@ export class AuthService {
         email,
         password
       },
-      httpOptions
+      CustomHttpOptions
     )
   }
 
   public turnToAdmin(uuid: string): Observable<IUser> {
-    return this.http.post<IUser>(API.AUTH.TURN_ADMIN(uuid), {}, httpOptions)
+    return this.http.post<IUser>(API.AUTH.TURN_ADMIN(uuid), {}, CustomHttpOptions)
   }
 
   public authenticate(token: string, user: IUser): void {
@@ -62,5 +58,9 @@ export class AuthService {
   public isAuthenticated(): boolean {
     const token = this.storage.getToken()
     return token !== undefined
+  }
+
+  public cleanUserInfo(): void {
+    this.storage.clear()
   }
 }

@@ -1,0 +1,44 @@
+@import "src/app/shared/styles/helpers/variables";
+
+.dashboard {
+  &__container {
+    height: calc(100% - #{$header-height});
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+
+    &--title {
+      align-self: center;
+      margin-top: 3rem;
+      font-size: 2rem;
+    }
+
+    &--subtitle {
+      align-self: center;
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+
+    &--actions {
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .action-button {
+        margin: 2rem;
+        padding: 2rem;
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 459px) {
+  .dashboard {
+    &__container {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

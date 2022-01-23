@@ -1,4 +1,8 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing'
 import { ComponentFixture, TestBed } from '@angular/core/testing'
+import { MatButtonModule } from '@angular/material/button'
+import { RouterTestingModule } from '@angular/router/testing'
+import { SharedComponentsModule } from 'src/app/shared/components/shared-components.module'
 import { DashboardComponent } from './dashboard.component'
 
 describe('DashboardComponent', () => {
@@ -7,6 +11,7 @@ describe('DashboardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [MatButtonModule, SharedComponentsModule, HttpClientTestingModule, RouterTestingModule],
       declarations: [DashboardComponent]
     }).compileComponents()
   })

@@ -1,0 +1,37 @@
+@import "mixins";
+
+.dialog {
+  &__title {
+    text-align: center;
+  }
+
+  &__content {
+    margin-top: 2rem;
+  }
+
+  &__form {
+    @include flexbox-align-direction(center, center, column);
+
+    &--subtitle {
+      margin-bottom: 1rem;
+    }
+
+    &--submit {
+      margin-top: 2rem;
+    }
+  }
+
+  &--close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+}
+
+::ng-deep .custom-dialog {
+  position: relative !important;
+
+  .mat-dialog-container {
+    padding: 3rem;
+  }
+}

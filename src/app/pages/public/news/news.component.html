@@ -3,7 +3,7 @@
     [name]="userInfo?.name"
     [isAdmin]="userInfo?.role === 'ADMIN_ROLE'"
     (turnAdminCallback)="turnToAdmin()"
-    (dashboardCallback)="goToDashboard()"
+    (buttonCallback)="actionGoTo($event)"
   ></app-toolbar>
   <div class="news__container">
     <h1 class="news__container--title">Nuestras noticias</h1>

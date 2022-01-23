@@ -1,0 +1,33 @@
+<section class="full-screen dahsboard">
+  <app-toolbar
+    [name]="userInfo?.name"
+    [isAdmin]="userInfo?.role === 'ADMIN_ROLE'"
+    (buttonCallback)="actionGoTo($event)"
+  ></app-toolbar>
+
+  <div class="dashboard__container">
+    <h1 class="dashboard__container--title">Dashboard (Administrador)</h1>
+    <span class="dashboard__container--subtitle">Realiza una de las siguientes acciones:</span>
+    <div class="dashboard__container--actions">
+      <button
+        class="action-button"
+        mat-raised-button
+        color="accent"
+        (click)="openDialog(NewsDialogTypes.Create)"
+      >Crear Noticias</button>
+      <button
+        class="action-button"
+        mat-raised-button
+        color="accent"
+        (click)="openDialog(NewsDialogTypes.Update)"
+      >Actualizar Noticias</button>
+      <button
+        class="action-button"
+        mat-raised-button
+        color="accent"
+        (click)="openDialog(NewsDialogTypes.Remove)"
+      >Borrar Noticias</button>
+    </div>
+
+  </div>
+</section>

@@ -1,4 +1,4 @@
-import { Role } from '../const/user.const'
+import { Role } from './user.model'
 
 export interface ISigninParams {
   email: string
