@@ -1,9 +1,14 @@
 <!-- Aquí se podría crear un custom component del form-field-->
 <section class="full-screen full-center signin">
-  <div class="signin__form">
+  <img
+    class="signin__logo"
+    src="assets/images/logo-2.png"
+  />
+  <mat-card>
     <form
       [formGroup]="signinForm"
       (submit)="onSubmit()"
+      class="signin__form"
     >
       <mat-form-field
         class="signin__field"
@@ -36,10 +41,14 @@
         </mat-error>
       </mat-form-field>
       <button
+        mat-button
+        (click)="goToSignup()"
+      >Registrarse</button>
+      <button
         mat-raised-button
         color="primary"
         type="submit"
       >Log In</button>
     </form>
-  </div>
+  </mat-card>
 </section>

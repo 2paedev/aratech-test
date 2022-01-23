@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
-import { IUser } from 'src/app/shared/models/auth.model'
+import { ITurnAdminResponse, IUser } from 'src/app/shared/models/auth.model'
 import { INews, INewsResponse } from 'src/app/shared/models/news.model'
 import { AuthService } from 'src/app/shared/services/auth.service'
 import { ErrorsService } from 'src/app/shared/services/errors.service'
@@ -27,7 +27,7 @@ export class NewsComponent implements OnInit {
 
     this.news.getNews().subscribe({
       next: (response: INewsResponse) => this.handleGetNews(response.news),
-      error: (error) => console.log(error)
+      error: (error: Response) => console.log(error)
     })
   }
 
@@ -38,15 +38,15 @@ export class NewsComponent implements OnInit {
   public turnToAdmin(): void {
     if (this.userInfo?.uuid) {
       this.auth.turnToAdmin(this.userInfo.uuid).subscribe({
-        next: (response: IUser) => this.handleTurnToAdmin(response),
-        error: (error) => this.errors.handleError(error)
+        next: (response: ITurnAdminResponse) => this.handleTurnToAdmin(response),
+        error: (error: Response) => this.errors.handleError(error)
       })
     }
   }
 
-  private handleTurnToAdmin(data: IUser): void {
-    this.auth.addUserInfo(data)
-    this.userInfo = data
+  private handleTurnToAdmin(data: ITurnAdminResponse): void {
+    this.auth.addUserInfo(data.user)
+    this.userInfo = data.user
   }
 
   public actionGoTo(route: string): void {

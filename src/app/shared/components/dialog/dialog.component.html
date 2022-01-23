@@ -75,9 +75,13 @@
       >{{dialogTypeText}}</button>
     </form>
 
-    <div *ngIf="isSubmitted">
+    <div
+      *ngIf="isSubmitted"
+      class="dialog__confirmation"
+    >
       <span>La acción ha terminado correctamente.</span>
       <button
+        class="dialog__confirmation--close"
         mat-raised-button
         color="primary"
         type="button"

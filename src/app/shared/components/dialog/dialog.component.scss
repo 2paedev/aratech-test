@@ -26,6 +26,14 @@
     top: 1.5rem;
     right: 1.5rem;
   }
+
+  &__confirmation {
+    @include flexbox-align-direction(center, center, column);
+
+    &--close {
+      margin-top: 1rem;
+    }
+  }
 }
 
 ::ng-deep .custom-dialog {

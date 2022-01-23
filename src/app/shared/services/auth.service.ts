@@ -2,7 +2,14 @@ import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
 import { API, CustomHttpOptions } from '../const/api.const'
-import { ISigninParams, ISigninResponse, IUser } from '../models/auth.model'
+import {
+  ISigninParams,
+  ISigninResponse,
+  ISignupParams,
+  ISignupResponse,
+  ITurnAdminResponse,
+  IUser
+} from '../models/auth.model'
 import { StorageService } from './storage.service'
 
 @Injectable({
@@ -22,20 +29,21 @@ export class AuthService {
     )
   }
 
-  public signup(username: string, email: string, password: string): Observable<ISigninResponse> {
-    return this.http.post<ISigninResponse>(
+  public signup(bodyParams: ISignupParams): Observable<ISignupResponse> {
+    return this.http.post<ISignupResponse>(
       API.AUTH.SIGNUP,
       {
-        username,
-        email,
-        password
+        name: bodyParams.name,
+        email: bodyParams.email,
+        password: bodyParams.password,
+        uuid: bodyParams.uuid
       },
       CustomHttpOptions
     )
   }
 
-  public turnToAdmin(uuid: string): Observable<IUser> {
-    return this.http.post<IUser>(API.AUTH.TURN_ADMIN(uuid), {}, CustomHttpOptions)
+  public turnToAdmin(uuid: string): Observable<ITurnAdminResponse> {
+    return this.http.post<ITurnAdminResponse>(API.AUTH.TURN_ADMIN(uuid), {}, CustomHttpOptions)
   }
 
   public authenticate(token: string, user: IUser): void {

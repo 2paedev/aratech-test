@@ -5,6 +5,13 @@ export interface ISigninParams {
   password: string
 }
 
+export interface ISignupParams {
+  email: string
+  name: string
+  password: string
+  uuid: string
+}
+
 export interface IUser {
   uuid: string
   name: string
@@ -14,5 +21,13 @@ export interface IUser {
 
 export interface ISigninResponse {
   user: IUser
+  token: string
+}
+
+export interface ITurnAdminResponse {
+  user: IUser
+}
+
+export interface ISignupResponse {
   token: string
 }

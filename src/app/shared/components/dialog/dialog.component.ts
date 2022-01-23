@@ -68,7 +68,7 @@ export class DialogComponent implements OnInit {
       if (this.data.type === NewsDialogTypes.Create) {
         this.news.create(this.dialogForm.value).subscribe({
           next: (response: INewsActionResponse) => this.handleSubmit(response),
-          error: (error) => this.handleError(error)
+          error: (error: Response) => this.handleError(error)
         })
       } else if (this.data.type === NewsDialogTypes.Update) {
         this.news.update(this.dialogForm.value).subscribe({
@@ -78,7 +78,7 @@ export class DialogComponent implements OnInit {
       } else if (this.data.type === NewsDialogTypes.Remove) {
         this.news.remove(this.dialogForm.value).subscribe({
           next: (response: INewsActionResponse) => this.handleSubmit(response),
-          error: (error) => this.handleError(error)
+          error: (error: Response) => this.handleError(error)
         })
       }
     }

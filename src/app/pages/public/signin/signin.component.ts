@@ -39,7 +39,7 @@ export class SigninComponent implements OnInit {
     if (this.signinForm.valid) {
       this.auth.signin(this.signinForm.value).subscribe({
         next: (response: ISigninResponse) => this.handleSubmit(response),
-        error: (error) => console.log(error) //Gestionar error aquí según respuesta. Crear helper común a todos.
+        error: (error: Response) => console.log(error) //Gestionar error aquí según respuesta. Crear helper común a todos.
       })
     }
   }
@@ -49,5 +49,9 @@ export class SigninComponent implements OnInit {
     this.user.info = response.user
     this.auth.authenticate(response.token, response.user)
     this.router.navigateByUrl(APP_ROUTES.NEWS)
+  }
+
+  public goToSignup(): void {
+    this.router.navigateByUrl(APP_ROUTES.SIGNUP)
   }
 }

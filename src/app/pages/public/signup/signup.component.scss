@@ -1,7 +1,11 @@
 @import "mixins";
 
-.signin {
+.signup {
   @include flexbox-align-direction(center, center, column);
+
+  &__title {
+    padding: 2rem;
+  }
 
   &__logo {
     width: 10rem;

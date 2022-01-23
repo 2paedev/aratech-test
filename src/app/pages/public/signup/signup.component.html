@@ -1,1 +1,86 @@
-<p>Signup works!</p>
+<section class="full-screen full-center signup">
+  <mat-card>
+    <mat-card-title class="signup__title">Registrar nuevo usuario</mat-card-title>
+    <mat-card-content>
+      <form
+        [formGroup]="signupForm"
+        (submit)="onSubmit()"
+        class="signup__form"
+      >
+        <mat-form-field
+          class="signup__field"
+          appearance="outline"
+        >
+          <mat-label> E-mail
+          </mat-label>
+          <input
+            matInput
+            formControlName="email"
+            required
+          >
+          <mat-error *ngIf="signupForm.controls['email'].invalid">
+            <span *ngIf="signupForm.hasError('required', 'email')">Este campo es obligatorio.</span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field
+          class="signup__field"
+          appearance="outline"
+        >
+          <mat-label> Nombre
+          </mat-label>
+          <input
+            matInput
+            formControlName="name"
+            required
+          >
+          <mat-error *ngIf="signupForm.controls['name'].invalid">
+            <span *ngIf="signupForm.hasError('required', 'name')">Este campo es obligatorio.</span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field
+          class="signup__field"
+          appearance="outline"
+        >
+          <mat-label> Contraseña
+          </mat-label>
+          <input
+            matInput
+            formControlName="password"
+            type="password"
+          >
+          <mat-error *ngIf="signupForm.controls['password'].invalid">
+            <span *ngIf="signupForm.hasError('required', 'password')">Este campo es obligatorio.</span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field
+          class="signup__field"
+          appearance="outline"
+        >
+          <mat-label> UUID
+          </mat-label>
+          <input
+            matInput
+            formControlName="uuid"
+            required
+          >
+          <mat-error *ngIf="signupForm.controls['uuid'].invalid">
+            <span *ngIf="signupForm.hasError('required', 'uuid')">Este campo es obligatorio.</span>
+          </mat-error>
+        </mat-form-field>
+
+        <button
+          mat-button
+          (click)="goToSignin()"
+        >Cancelar</button>
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+        >Registrarse</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</section>
