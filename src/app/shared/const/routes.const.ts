@@ -1,4 +1,5 @@
 export const APP_ROUTES = {
   SIGNIN: '/signin',
-  NEWS: '/news'
+  NEWS: '/news',
+  DASHBOARD: '/dashboard'
 }

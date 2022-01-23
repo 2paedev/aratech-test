@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
+import { DashboardModule } from './pages/dashboard/dashboard.module'
 import { NewsModule } from './pages/news/news.module'
 import { SigninModule } from './pages/signin/signin.module'
 import { SignupModule } from './pages/signup/signup.module'
@@ -16,6 +17,11 @@ const routes: Routes = [
   {
     path: 'news',
     loadChildren: async (): Promise<typeof NewsModule> => (await import('./pages/news/news.module')).NewsModule
+  },
+  {
+    path: 'dashboard',
+    loadChildren: async (): Promise<typeof DashboardModule> =>
+      (await import('./pages/dashboard/dashboard.module')).DashboardModule
   },
   { path: '', redirectTo: '/news', pathMatch: 'full' },
   { path: '**', redirectTo: '/news' }

@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
 import { API } from '../const/api.const'
-import { ISigninParams, ISigninResponse } from '../models/auth.model'
+import { ISigninParams, ISigninResponse, IUser } from '../models/auth.model'
 import { StorageService } from './storage.service'
 
 const httpOptions = {
@@ -38,17 +38,29 @@ export class AuthService {
     )
   }
 
-  public authenticate(token: string, uuid: string): void {
-    this.storage.addToken(token)
-    this.storage.addUser(uuid)
+  public turnToAdmin(uuid: string): Observable<IUser> {
+    return this.http.post<IUser>(API.AUTH.TURN_ADMIN(uuid), {}, httpOptions)
   }
 
-  public getAuthToken(): string | null {
+  public authenticate(token: string, user: IUser): void {
+    this.storage.addToken(token)
+    this.addUserInfo(user)
+  }
+
+  public addUserInfo(data: IUser): void {
+    this.storage.addUser(data)
+  }
+
+  public getAuthToken(): string | undefined {
     return this.storage.getToken()
+  }
+
+  public getAuthUser(): IUser | undefined {
+    return this.storage.getUser()
   }
 
   public isAuthenticated(): boolean {
     const token = this.storage.getToken()
-    return token !== null
+    return token !== undefined
   }
 }

@@ -1,1 +1,17 @@
-<p>News works!</p>
+<section class="full-screen news">
+  <app-toolbar
+    [name]="userInfo?.name"
+    [isAdmin]="userInfo?.role === 'ADMIN_ROLE'"
+    (turnAdminCallback)="turnToAdmin()"
+    (dashboardCallback)="goToDashboard()"
+  ></app-toolbar>
+  <div class="news__container">
+    <h1 class="news__container--title">Nuestras noticias</h1>
+    <div class="news__container--cards">
+      <app-news-card
+        [info]="news"
+        *ngFor="let news of allNews"
+      ></app-news-card>
+    </div>
+  </div>
+</section>

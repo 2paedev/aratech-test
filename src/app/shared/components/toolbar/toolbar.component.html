@@ -1,0 +1,33 @@
+<mat-toolbar class="toolbar">
+  <img
+    class="toolbar__logo"
+    src="assets/images/logo-aratech.png"
+  />
+  <div class="toolbar__user">
+    <span>{{name}}</span>
+    <button
+      *ngIf="!isAdmin"
+      class="toolbar__user--admin"
+      mat-raised-button
+      color="primary"
+      aria-label="Turn to admin button"
+      (click)="turnAdminButton()"
+    >
+
+      Cambiar a Admin
+    </button>
+
+    <button
+      *ngIf="isAdmin"
+      class="toolbar__user--admin"
+      mat-raised-button
+      color="primary"
+      aria-label="Go to dashboard"
+      (click)="dashboardButton()"
+    >
+
+      Dashboard
+    </button>
+  </div>
+
+</mat-toolbar>
